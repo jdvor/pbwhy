@@ -1,0 +1,22 @@
+syntax = "proto3";
+package sample;
+
+message Feature {
+  string name = 1;
+  double value = 2;
+}
+
+message Person {
+  enum Gender {
+    UNSPECIFIED = 0;
+    MALE = 1;
+    FEMALE = 2;
+  }
+  string name = 1;
+  int32 age = 2;
+  Gender gender = 3;
+  repeated Feature features = 4;
+  map<string, string> extra = 5;
+  bytes token = 6;
+  bool alive = 7;
+}
