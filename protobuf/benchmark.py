@@ -48,7 +48,7 @@ while i < COUNT:
     serialization()
     i += 1
 elapsed = (perf_counter_ns() - start) / 1000000
-print(f"betterproto serialization ({COUNT}): {elapsed:.2f} ms")
+print(f"protobuf serialization ({COUNT}): {elapsed:.2f} ms")
 
 start = perf_counter_ns()
 i = 0
@@ -56,6 +56,6 @@ while i < COUNT:
     deserialization()
     i += 1
 elapsed = (perf_counter_ns() - start) / 1000000
-print(f"betterproto deserialization ({COUNT}): {elapsed:.2f} ms")
+print(f"protobuf deserialization ({COUNT}): {elapsed:.2f} ms")
 
 print(f"_serialized:{len(_serialized)} = {_serialized.hex()}")
