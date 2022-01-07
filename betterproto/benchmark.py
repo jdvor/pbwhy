@@ -3,7 +3,7 @@ from sample import Feature, Person, PersonGender
 
 
 COUNT = 100000
-_token = bytes()
+_token = bytes('Hello world', 'ascii')
 _serialized = bytes()
 
 
