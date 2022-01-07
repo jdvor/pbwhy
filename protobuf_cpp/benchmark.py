@@ -1,10 +1,13 @@
 from time import perf_counter_ns
 from sample_pb2 import Feature, Person
+from google.protobuf.internal import api_implementation
 
 
 COUNT = 100000
-_token = bytes()
+_token = bytes('Hello world', 'ascii')
 _serialized = bytes()
+
+print(f"implementation: {api_implementation.Type()}")
 
 
 def serialization() -> None:

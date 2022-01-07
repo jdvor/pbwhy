@@ -1,0 +1,9 @@
+[packages]
+protobuf = "*"
+
+[dev-packages]
+protoc-wheel-0 = "*"
+
+[scripts]
+codegen = "protoc -I ../ --python_out=./ ../sample.proto"
+benchmark = "python benchmark.py"
