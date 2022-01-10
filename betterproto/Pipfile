@@ -1,10 +1,13 @@
 [packages]
-betterproto = "*"
+betterproto = "==1.2.5"
+memory-profiler = "==0.60.0"
 
 [dev-packages]
-betterproto = {extras = ["compiler"], version = "*"}
-grpcio-tools = "*"
+betterproto = {extras = ["compiler"], version = "==1.2.5"}
+grpcio-tools = "==1.43.0"
 
 [scripts]
 codegen = "python -m grpc_tools.protoc -I ../ --python_betterproto_out=./ ../sample.proto"
-benchmark = "python benchmark.py"
+all = "python run.py"
+serialization = "python run.py --skip_deserialization"
+deserialization = "python run.py --skip_serialization"

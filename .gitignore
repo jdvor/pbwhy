@@ -1,5 +1,7 @@
 !protobuf_python/.env
 
+mprofile_*.dat
+
 # betterproto creates empty (and not needed) __init__.py on every code generation
 betterproto/__init__.py
 

@@ -1,9 +1,12 @@
 [packages]
-protobuf = "*"
+protobuf = "==3.19.1"
+memory-profiler = "==0.60.0"
 
 [dev-packages]
-protoc-wheel-0 = "*"
+protoc-wheel-0 = "==3.19.2"
 
 [scripts]
 codegen = "protoc -I ../ --python_out=./ ../sample.proto"
-benchmark = "python benchmark.py"
+all = "python run.py"
+serialization = "python run.py --skip_deserialization"
+deserialization = "python run.py --skip_serialization"

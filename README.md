@@ -8,19 +8,20 @@ https://github.com/protocolbuffers/protobuf
 ```
 cd protobuf_cpp
 pipenv install --dev
-pipenv run codegen
-pipenv run benchmark
+[ pipenv run codegen ]
+pipenv run all
 ```
 
 =>
 
 ```
-implementation: cpp
-protobuf serialization (100000): 1445.62 ms
-protobuf deserialization (100000): 325.87 ms
-_serialized:86 = 0a084a6f686e20446f65102d180122110a0668656967687411000000000070674022110a067765696768741100000000008057402a110a0866616365626f6f6b12056e65766572320b48656c6c6f20776f726c643801
+protobuf_cpp serialization [10000]: 145.17 ms
+protobuf_cpp deserialization [10000]: 36.95 ms
+
+CPU: Intel64 Family 6 Model 142 Stepping 10, GenuineIntel, 8 cpu, 2.0 GHz
+OS: win-amd64
+Python: 3.8.10, CPython, 3d8993a
 ```
-[Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz, 1992 Mhz, 4 Core(s), 8 Logical Processor(s), Win 10 64bit, Python 3.8.10]
 
 
 ## protobuf python
@@ -28,20 +29,21 @@ _serialized:86 = 0a084a6f686e20446f65102d180122110a06686569676874110000000000706
 ```
 cd protobuf_python
 pipenv install --dev
-pipenv run codegen
-pipenv run benchmark
+[ pipenv run codegen ]
+pipenv run all
 ```
 
 =>
 
 ```
 Loading .env environment variables...
-implementation: python
-protobuf serialization (100000): 6936.52 ms
-protobuf deserialization (100000): 3300.87 ms
-_serialized:86 = 0a084a6f686e20446f65102d180122110a0668656967687411000000000070674022110a067765696768741100000000008057402a110a0866616365626f6f6b12056e65766572320b48656c6c6f20776f726c643801
+protobuf_python serialization [10000]: 590.71 ms
+protobuf_python deserialization [10000]: 348.48 ms
+
+CPU: Intel64 Family 6 Model 142 Stepping 10, GenuineIntel, 8 cpu, 2.0 GHz
+OS: win-amd64
+Python: 3.8.10, CPython, 3d8993a
 ```
-[Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz, 1992 Mhz, 4 Core(s), 8 Logical Processor(s), Win 10 64bit, Python 3.8.10]
 
 
 ## betterproto
@@ -49,15 +51,34 @@ https://github.com/danielgtaylor/python-betterproto
 ```
 cd betterproto
 pipenv install --dev
-pipenv run codegen
-pipenv run benchmark
+[ pipenv run codegen ]
+pipenv run all
 ```
 
 =>
 
 ```
-betterproto serialization (100000): 6530.80 ms
-betterproto deserialization (100000): 8243.70 ms
-_serialized:86 = 0a084a6f686e20446f65102d180122110a0668656967687411000000000070674022110a067765696768741100000000008057402a110a0866616365626f6f6b12056e65766572320b48656c6c6f20776f726c643801
+betterproto serialization [10000]: 613.47 ms
+betterproto deserialization [10000]: 962.49 ms
+
+CPU: Intel64 Family 6 Model 142 Stepping 10, GenuineIntel, 8 cpu, 2.0 GHz
+OS: win-amd64
+Python: 3.8.10, CPython, 3d8993a
 ```
-[Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz, 1992 Mhz, 4 Core(s), 8 Logical Processor(s), Win 10 64bit, Python 3.8.10]
+
+## Benchmark execution with profiling
+
+Run both serialization & deserialization benchmark optionally with CPU and memory profiling:
+```shell
+pipenv run all [ -c, --cpu_profile ] [ -m, --memory_profile ]
+```
+
+Run both serialization benchmark optionally with CPU and memory profiling:
+```shell
+pipenv run serialization [ -c, --cpu_profile ] [ -m, --memory_profile ]
+```
+
+Run both deserialization benchmark optionally with CPU and memory profiling:
+```shell
+pipenv run deserialization [ -c, --cpu_profile ] [ -m, --memory_profile ]
+```
